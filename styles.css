@@ -1,0 +1,137 @@
+/* Estilo general */
+body {
+    font-family: "Inter", sans-serif;
+    background: #f2f3f7;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Tarjeta principal */
+.profile-card {
+    background: #ffffff;
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+}
+
+/* Foto */
+.photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.photo-container img {
+    width: 45vw;
+    max-width: 150px;
+    height: 45vw;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+/* Texto */
+h1 {
+    margin: 10px 0 4px;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.subtitle span {
+    display: block;
+    line-height: 1.3;
+}
+
+/* Iconos sociales */
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Botón circular */
+.circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef1f5;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.circle i {
+    font-size: 1.35rem;
+    color: #444;
+}
+
+/* Hover suave */
+.circle:hover {
+    transform: scale(1.12);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+}
+
+/* --- Colores de cada red --- */
+
+.x i {
+    color: #000000;
+}
+
+.linkedin i {
+    color: #0A66C2;
+}
+
+.researchgate i {
+    color: #00CCBB;
+}
+
+.orcid i {
+    color: #A6CE39;
+}
+
+.github i {
+    color: #000000;
+}
+
+.mail i {
+    color: #D44638;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .profile-card {
+        padding: 22px 18px;
+    }
+
+    .circle {
+        width: 44px;
+        height: 44px;
+    }
+}

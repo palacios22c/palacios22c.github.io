@@ -142,12 +142,12 @@ h1 {
 
 /* --- Colores por red social --- */
 .x i { color: #000; }
+.linkedin i { color: #0A66C2; }
 .researchgate i { color: #00CCBB; }
 .orcid i { color: #A6CE39; }
 .github i { color: #000; }
-.scholar i {
-    color: #4285F4;
-}
+.scholar i { color: #4285F4; }
+.mail i { color: #D44638; }
 
 /* Responsive */
 @media (max-width: 480px) {

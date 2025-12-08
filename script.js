@@ -15,11 +15,9 @@ if (saved) {
 }
 
 function updateIcon() {
-  if (root.classList.contains("dark")) {
-    icon.className = "fa-regular fa-sun";
-  } else {
-    icon.className = "fa-regular fa-moon";
-  }
+  icon.className = root.classList.contains("dark")
+    ? "fa-regular fa-sun"
+    : "fa-regular fa-moon";
 }
 updateIcon();
 

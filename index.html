@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saúl Palacios info</title>
+
+  <!-- SEO information -->
+  <title data-i18n="title">Saúl Palacios info</title>
+  <meta name="description" content="Perfil académico y profesional de Saúl Palacios">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -11,64 +14,87 @@
 </head>
 <body>
 
+  <!-- Selector de idioma -->
+  <label for="langSwitcher" class="sr-only">Idioma</label>
+  <select id="langSwitcher" class="lang-switcher" aria-label="Idioma">
+    <option value="es">ES</option>
+    <option value="en">EN</option>
+  </select>
+
   <!-- Botón modo oscuro -->
-  <button id="themeToggle" class="theme-btn" aria-label="Cambiar tema">
-    <i class="fa-regular fa-moon"></i>
+  <button id="themeToggle" class="theme-btn"
+  data-i18n-aria="toggleTheme" aria-label="Cambiar tema">
+    <i class="fa-regular fa-moon" aria-hidden="true"></i>
+    <span class="sr-only" data-i18n="toggleTheme">Cambiar tema</span>
   </button>
 
   <main class="profile-wrapper">
     <div class="profile-card">
+      <div id="i18n-status" class="sr-only" aria-live="polite"></div>
 
       <div class="photo-container">
-        <img src="https://avatars.githubusercontent.com/u/12660567" alt="Foto de Saúl">
+        <img src="https://avatars.githubusercontent.com/u/12660567" alt="Foto de perfil de Saúl Palacios">
       </div>
 
       <h1>Saúl Palacios</h1>
       <p class="subtitle">
-        <span>Curioso</span>
-        <span>Profesor e investigador</span>
-        <span>Ingeniero Industrial + Biomédico</span>
+        <span data-i18n="char1">Curioso</span>
+        <span data-i18n="char2">Profesor e investigador</span>
+        <span data-i18n="char3">Ingeniero Industrial + Biomédico</span>
       </p>
 
       <div class="social-links">
 
-        <a href="https://x.com/_spalacios" target="_blank" class="circle x">
-          <i class="fa-brands fa-x-twitter"></i>
+        <a href="https://x.com/_spalacios" target="_blank"
+        class="circle x"
+        data-i18n-aria="ariaX" aria-label="Perfil en X de Saúl Palacios">
+          <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
         </a>
 
         <!--
-        <a href="https://www.linkedin.com" target="_blank" class="circle linkedin">
-          <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com" target="_blank"
+        class="circle linkedin"
+        data-i18n-aria="ariaLinkedIn" aria-label="Perfil de LinkedIn de Saúl Palacios">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
         -->
 
-        <a href="https://www.researchgate.net/profile/Saul-Palacios-2" target="_blank" class="circle researchgate">
-          <i class="fab fa-researchgate"></i>
+        <a href="https://www.researchgate.net/profile/Saul-Palacios-2" target="_blank"
+        class="circle researchgate"
+        data-i18n-aria="ariaResearchGate" aria-label="Perfil de ResearchGate de Saúl Palacios">
+          <i class="fab fa-researchgate" aria-hidden="true"></i>
         </a>
 
-        <a href="https://orcid.org/0000-0001-5935-9454" target="_blank" class="circle orcid">
-          <i class="fa-brands fa-orcid"></i>
+        <a href="https://orcid.org/0000-0001-5935-9454" target="_blank"
+        class="circle orcid"
+        data-i18n-aria="ariaORCID" aria-label="Perfil ORCID de Saúl Palacios">
+          <i class="fa-brands fa-orcid" aria-hidden="true"></i>
         </a>
 
-        <a href="https://github.com/palacios22c" target="_blank" class="circle github">
-          <i class="fab fa-github"></i>
+        <a href="https://github.com/palacios22c" target="_blank"
+        class="circle github"
+        data-i18n-aria="ariaGitHub" aria-label="Perfil de GitHub de Saúl Palacios">
+          <i class="fab fa-github" aria-hidden="true"></i>
         </a>
 
-        <a href="https://scholar.google.es/citations?user=56HBEBIAAAAJ&hl=es" target="_blank" class="circle scholar">
-          <i class="fa-brands fa-google-scholar"></i>
+        <a href="https://scholar.google.es/citations?user=56HBEBIAAAAJ&hl=es" target="_blank" 
+        class="circle scholar"
+        data-i18n-aria="ariaScholar" aria-label="Perfil en Google Scholar de Saúl Palacios">
+          <i class="fa-brands fa-google-scholar" aria-hidden="true"></i>
         </a>
 
         <!--
-        <a href="mailto:correo@example.com" class="circle mail">
-          <i class="fas fa-envelope"></i>
+        <a href="mailto:correo@example.com" class="circle mail"
+        data-i18n-aria="ariaMail" aria-label="Correo electrónico de Saúl Palacios">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
         </a>
         -->
 
       </div>
     </div>
-
   </main>
 
   <script src="script.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>

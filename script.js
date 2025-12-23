@@ -1,6 +1,6 @@
-// ------------------------------
+// -------------------------------
 //  MODO OSCURO (con localStorage)
-// ------------------------------
+// -------------------------------
 
 const root = document.documentElement;
 const btn = document.getElementById("themeToggle");
@@ -24,9 +24,6 @@ updateIcon();
 // Evento del botón
 btn.addEventListener("click", () => {
   root.classList.toggle("dark");
-  localStorage.setItem(
-    "theme",
-    root.classList.contains("dark") ? "dark" : "light"
-  );
+  localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
   updateIcon();
 });

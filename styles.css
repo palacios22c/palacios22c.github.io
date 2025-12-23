@@ -35,18 +35,36 @@ body {
     padding: 40px 20px;
 }
 
-/* Botón modo oscuro */
+/* Selector de idioma */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+.lang-switcher,
 .theme-btn {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    background: var(--circle-bg);
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px var(--shadow);
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+  position: fixed;
+  top: 16px;
+  background: var(--circle-bg);
+  color: var(--text);
+  border: none;
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+.lang-switcher {
+  left: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.theme-btn {
+  right: 16px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .theme-btn i {
@@ -72,7 +90,6 @@ body {
 }
 
 .profile-card:hover {
-    transform: translateY(-4px);
     box-shadow: 0 14px 36px var(--shadow);
 }
 
@@ -142,13 +159,24 @@ h1 {
 }
 
 /* Colores por red social */
-.x i { color: #000; }
+.x i { color: var(--text); }
 .linkedin i { color: #0A66C2; }
 .researchgate i { color: #00CCBB; }
 .orcid i { color: #A6CE39; }
-.github i { color: #000; }
+.github i { color: var(--text); }
 .scholar i { color: #4285F4; }
 .mail i { color: #D44638; }
+
+/* -------------------------
+   ANIMACIÓN i18n
+--------------------------*/
+[data-i18n] {
+  transition: opacity 0.2s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
 
 /* --------------------------------------
    RESPONSIVE
@@ -179,4 +207,17 @@ h1 {
     .profile-card {
         max-width: 420px;
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-i18n] {
+    transition: none;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
 }

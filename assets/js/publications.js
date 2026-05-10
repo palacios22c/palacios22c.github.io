@@ -1,91 +1,39 @@
 async function loadPublications() {
-  const container = document.getElementById("publications-list");
+  const container =
+    document.getElementById("publications-list");
 
   if (!container) return;
 
   try {
-    console.log("Loading ORCID publications...");
+    console.log("Loading publications JSON...");
 
-    const orcidId = "0000-0001-5935-9454";
-
-    const response = await fetch(
-      `https://pub.orcid.org/v3.0/${orcidId}/works`,
-      {
-        headers: {
-          "Accept": "application/json"
-        }
-      }
-    );
+    const response =
+      await fetch("data/publications.json");
 
     if (!response.ok) {
-      throw new Error("ORCID API error: " + response.status);
+      throw new Error(
+        "HTTP error: " + response.status
+      );
     }
 
-    const data = await response.json();
+    const publications =
+      await response.json();
 
-    const works = data.group || [];
-
-    if (works.length === 0) {
+    if (!Array.isArray(publications) ||
+        publications.length === 0) {
       container.innerHTML =
-        "<p>No publications found in ORCID.</p>";
+        "<p>No publications available.</p>";
       return;
     }
 
+    // Ordenar por año (descendente)
+    publications.sort((a, b) =>
+      (b.year || 0) - (a.year || 0)
+    );
+
     container.innerHTML = "";
 
-    works.forEach(item => {
-
-      const summary =
-        item["work-summary"] &&
-        item["work-summary"][0]
-          ? item["work-summary"][0]
-          : {};
-
-      const title =
-        summary.title &&
-        summary.title.title &&
-        summary.title.title.value
-          ? summary.title.title.value
-          : "Untitled";
-
-      const journal =
-        summary["journal-title"] &&
-        summary["journal-title"].value
-          ? summary["journal-title"].value
-          : "";
-
-      const year =
-        summary["publication-date"] &&
-        summary["publication-date"].year &&
-        summary["publication-date"].year.value
-          ? summary["publication-date"].year.value
-          : "";
-
-      // 🔧 FIX CRÍTICO (sin optional chaining roto)
-      let doi = "";
-
-      const externalIds =
-        summary["external-ids"];
-
-      if (
-        externalIds &&
-        externalIds["external-id"]
-      ) {
-        const doiObj =
-          externalIds["external-id"].find(
-            id =>
-              id["external-id-type"] === "doi"
-          );
-
-        if (doiObj &&
-            doiObj["external-id-value"]) {
-          doi =
-            doiObj["external-id-value"];
-        }
-      }
-
-      const link =
-        doi ? `https://doi.org/${doi}` : "";
+    publications.forEach(pub => {
 
       const article =
         document.createElement("article");
@@ -93,24 +41,53 @@ async function loadPublications() {
       article.className =
         "publication-item";
 
-      article.innerHTML = `
-        <h3>${title}</h3>
+      const doiLink =
+        pub.doi
+          ? `https://doi.org/${pub.doi}`
+          : "";
 
-        ${journal ? `
-          <p class="publication-journal">
-            <em>${journal}</em>
-            ${year ? `(${year})` : ""}
-          </p>
-        ` : ""}
+      article.innerHTML = `
+        <h3>${pub.title || "Untitled"}</h3>
+
+        ${
+          pub.authors
+            ? `<p class="publication-authors">
+                 ${pub.authors}
+               </p>`
+            : ""
+        }
+
+        ${
+          pub.journal || pub.year
+            ? `<p class="publication-journal">
+                 <em>${pub.journal || ""}</em>
+                 ${pub.year ? `(${pub.year})` : ""}
+               </p>`
+            : ""
+        }
 
         <div class="publication-links">
-          ${link ? `
-            <a href="${link}"
-               target="_blank"
-               rel="noopener noreferrer">
-               DOI
-            </a>
-          ` : ""}
+
+          ${
+            doiLink
+              ? `<a href="${doiLink}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   DOI
+                 </a>`
+              : ""
+          }
+
+          ${
+            pub.pdf
+              ? `<a href="${pub.pdf}"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                   PDF
+                 </a>`
+              : ""
+          }
+
         </div>
       `;
 
@@ -119,11 +96,14 @@ async function loadPublications() {
 
   } catch (err) {
 
-    console.error("Error loading ORCID:", err);
+    console.error(
+      "Error loading publications:",
+      err
+    );
 
     container.innerHTML = `
       <p class="publication-error">
-        Error loading publications from ORCID.
+        Error loading publications.
       </p>
     `;
   }

@@ -77,7 +77,7 @@ async function loadPublications() {
                  </a>`
               : ""
           }
-
+          <!-- No se muestra el enlace al PDF
           ${
             pub.pdf
               ? `<a href="${pub.pdf}"
@@ -87,7 +87,7 @@ async function loadPublications() {
                  </a>`
               : ""
           }
-
+          -->
         </div>
       `;
 

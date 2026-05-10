@@ -1,0 +1,255 @@
+/* Variables de color (modo claro) */
+:root {
+  --bg: #f2f3f7;
+  --card-bg: #ffffff;
+  --text: #111;
+  --subtitle: #4b5563;
+  --circle-bg: #eef1f5;
+  --shadow: rgba(0,0,0,0.12);
+}
+
+/* Variables de color (modo oscuro) */
+:root.dark {
+  --bg: #0e1116;
+  --card-bg: #1a1f26;
+  --text: #e5e7eb;
+  --subtitle: #cbd5e1;
+  --circle-bg: #2a3039;
+  --shadow: rgba(0,0,0,0.5);
+}
+
+/* Estilo general */
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  margin: 0;
+  transition: background 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Contenedor principal */
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  
+}
+
+/* Tarjeta principal */
+.profile-card {
+  background: var(--card-bg);
+  color: var(--text);
+  max-width: 420px;
+  width: 100%;
+  padding: 32px 26px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px var(--shadow);
+  text-align: center;
+}
+
+/* Foto */
+.photo-container img {
+  width: min(40vw, 160px);
+  height: min(40vw, 160px);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Texto */
+h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+.subtitle span {
+  display: block;
+  color: var(--subtitle);
+}
+
+/* Iconos sociales */
+.social-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* Botón circular */
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--circle-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 3px 8px var(--shadow);
+}
+
+.circle i {
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.circle:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 14px var(--shadow);
+transition: transform 0.15s ease;
+}
+
+/* Colores por red social */
+.x i { color: var(--text); }
+.bluesky i { color: #1185FE; }
+.linkedin i { color: #0A66C2; }
+.researchgate i { color: #00CCBB; }
+.orcid i { color: #A6CE39; }
+.github i { color: var(--text); }
+.scholar i { color: #4285F4; }
+.mail i { color: #D44638; }
+
+.circle:focus-visible,
+.theme-btn:focus-visible,
+.lang-switcher:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* Controles */
+.lang-switcher,
+.theme-btn {
+  position: fixed;
+  top: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: var(--circle-bg);
+  color: var(--text);
+  cursor: pointer;
+  z-index: 10; /* para evitar solapamientos con contenido */
+}
+
+.lang-switcher { left: 16px; }
+.theme-btn { right: 16px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link */
+.skip-link {
+position: absolute;
+top: -40px;
+left: 16px;
+background: #2563eb;
+color: #fff;
+padding: 8px 12px;
+border-radius: 6px;
+text-decoration: none;
+z-index: 100;
+}
+
+.skip-link:focus {
+top: 16px;
+}
+
+/* --------------------------------------
+   RESPONSIVE
+-----------------------------------------*/
+
+/* Móviles pequeños (< 480px) */
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 24px 18px;
+        max-width: 95%;
+    }
+    .circle {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Tablets verticales (480–768px) */
+@media (min-width: 480px) and (max-width: 768px) {
+    .profile-card {
+        padding: 28px 22px;
+        max-width: 70%;
+    }
+}
+
+/* Tablets horizontales y portátiles pequeños */
+@media (min-width: 768px) and (max-width: 1100px) {
+    .profile-card {
+        max-width: 420px;
+    }
+}
+
+/* -------------------------
+   PUBLICACIONES
+-------------------------- */
+
+.publications-section {
+  margin-top: 36px;
+  text-align: left;
+}
+
+.publications-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.publication-item {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(128,128,128,.2);
+}
+
+.publication-item:last-child {
+  border-bottom: none;
+}
+
+.publication-item h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.publication-authors {
+  color: var(--subtitle);
+  margin: 4px 0;
+  font-size: 0.92rem;
+}
+
+.publication-journal {
+  margin: 8px 0;
+}
+
+.publication-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.publication-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.publication-links a:hover {
+  text-decoration: underline;
+}

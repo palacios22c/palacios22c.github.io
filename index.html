@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO information -->
+  <title data-i18n="title">Saúl Palacios info</title>
+  <link rel="canonical" href="https://palacios22c.github.io/">
+  <meta name="author" content="Saúl Palacios">
+  <meta name="description" data-i18n-content="meta_description" content="">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <!-- Selector de idioma -->
+  <select id="langSwitcher" class="lang-switcher" aria-label="Idioma">
+    <option value="es">ES</option>
+    <option value="en">EN</option>
+  </select>
+
+  <!-- Botón modo oscuro -->
+  <button id="themeToggle" class="theme-btn"
+    data-i18n-aria="toggle_theme" role="switch" aria-checked="false">
+    <i class="fa-regular fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <main id="main" class="profile-wrapper" tabindex="-1">
+    <div class="profile-card">
+
+      <div class="photo-container">
+        <img src="assets/img/profile.jpg"
+        alt="Foto de Saúl Palacios"
+        loading="lazy">
+      </div>
+
+      <h1 data-i18n="name">Saúl Palacios</h1>
+      <p class="subtitle">
+        <span data-i18n="char1"></span>
+        <span data-i18n="char2"></span>
+        <span data-i18n="char3"></span>
+      </p>
+
+      <nav class="social-links" aria-label="Redes sociales">
+
+        <a href="https://x.com/_spalacios"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle x"
+           aria-label="Perfil en X (se abre en una nueva pestaña)"
+           data-i18n-aria="x">
+          <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+        </a>
+
+        <!--
+        <a href="https://bsky.app/profile/spalacios.bsky.social"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle bluesky"
+           aria-label="Perfil en Bluesky (se abre en una nueva pestaña)"
+           data-i18n-aria="bluesky">
+          <i class="fa-brands fa-bluesky" aria-hidden="true"></i>
+        </a>
+        -->
+
+        <!--
+        <a href="https://www.linkedin.com"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle linkedin"
+           aria-label="Perfil en LinkedIn (se abre en una nueva pestaña)"
+           data-i18n-aria="linkedin">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+        -->
+
+        <a href="https://www.researchgate.net/profile/Saul-Palacios-2"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle researchgate"
+           aria-label="Perfil en ResearchGate (se abre en una nueva pestaña)"
+           data-i18n-aria="researchgate">
+          <i class="fab fa-researchgate" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://orcid.org/0000-0001-5935-9454"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle orcid"
+           aria-label="Perfil en ORCID (se abre en una nueva pestaña)"
+           data-i18n-aria="orcid">
+          <i class="fa-brands fa-orcid" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://github.com/palacios22c"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle github"
+           aria-label="Perfil en GitHub (se abre en una nueva pestaña)"
+           data-i18n-aria="github">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://scholar.google.es/citations?user=56HBEBIAAAAJ"
+           target="_blank"
+           rel="noopener noreferrer external"
+           class="circle scholar"
+           aria-label="Perfil en Google Scholar (se abre en una nueva pestaña)"
+           data-i18n-aria="scholar">
+          <i class="fa-brands fa-google-scholar" aria-hidden="true"></i>
+        </a>
+
+        <!--
+        <a href="mailto:correo@example.com"
+          class="circle mail"
+          aria-label="Correo electrónico"
+          data-i18n-aria="mail">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        -->
+
+      </nav>
+
+      <section class="publications-section">
+        <h2 data-i18n="publications_title">
+          Publicaciones científicas
+        </h2>
+
+        <div id="publications-list"></div>
+      </section>
+    </div>
+  </main>
+  <div id="status" class="sr-only" aria-live="polite"></div>
+
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/publications.js" defer></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     "authors": "Saúl Palacios, Enrico G. Caiani, Federica Landreani, Juan Pablo Martínez and Esther Pueyo",
     "journal": "Frontiers in Physiology",
     "year": 2019,
-    "doi": "https://doi.org/10.3389/fphys.2019.01510",
+    "doi": "10.3389/fphys.2019.01510",
     "pdf": "docs/papers/palacios19.pdf"
   },
   {
@@ -12,7 +12,7 @@
     "authors": "Saúl Palacios, Iwona Cygankiewicz, Antoni Bayés de Luna, Esther Pueyo and Juan Pablo Martínez",
     "journal": "Scientific Reports",
     "year": 2021,
-    "doi": "https://doi.org/10.1038/s41598-021-99861-1",
+    "doi": "10.1038/s41598-021-99861-1",
     "pdf": "docs/papers/palacios21.pdf"
   },
   {
@@ -20,7 +20,7 @@
     "authors": " Saúl Palacios, Radovan Smisek, Karol Curila, Uyen Nguyen, Frits W. Prinzen, Josef Halamek, Filip Plesinger, Pavel Jurak, Javier Ramos, Juan Pablo Martínez, Esther Pueyo",
     "journal": "PLoS One",
     "year": 2026,
-    "doi": "https://doi.org/10.1371/journal.pone.0344111",
+    "doi": "doi.org/10.1371/journal.pone.0344111",
     "pdf": "docs/papers/palacios26.pdf"
   }
 ]

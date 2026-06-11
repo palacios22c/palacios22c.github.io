@@ -199,47 +199,104 @@ top: 16px;
     }
 }
 
-/* -------------------------
-   PUBLICACIONES
--------------------------- */
+/* --------------------------------------
+   PUBLICACIONES DESPLEGABLES
+----------------------------------------- */
 
 .publications-section {
   margin-top: 36px;
+}
+
+.publications-details {
   text-align: left;
 }
 
-.publications-section h2 {
-  text-align: center;
-  margin-bottom: 24px;
+.publications-details summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+
+  padding: 12px 0;
+
+  font-size: 1.35rem;
+  font-weight: 600;
 }
+
+/* Ocultar marcador nativo */
+.publications-details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Flecha */
+.publications-details summary::before {
+  content: "▶";
+  display: inline-block;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+/* Girar flecha al desplegar */
+.publications-details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.publications-details summary:hover {
+  color: var(--subtitle);
+}
+
+.publications-details summary:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Espaciado respecto al título */
+#publications-list {
+  margin-top: 12px;
+}
+
+/* -------------------------
+   ELEMENTOS DE PUBLICACIÓN
+-------------------------- */
 
 .publication-item {
   padding: 18px 0;
-  border-bottom: 1px solid rgba(128,128,128,.2);
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
 
-.publication-item:last-child {
-  border-bottom: none;
+.publication-item:first-child {
+  border-top: none;
+  padding-top: 8px;
 }
 
 .publication-item h3 {
   margin: 0 0 8px;
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.45;
+  font-weight: 600;
 }
 
 .publication-authors {
-  color: var(--subtitle);
   margin: 4px 0;
+  color: var(--subtitle);
   font-size: 0.92rem;
+  line-height: 1.4;
 }
 
 .publication-journal {
-  margin: 8px 0;
+  margin: 6px 0;
+  color: var(--subtitle);
+  font-size: 0.92rem;
 }
 
 .publication-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   margin-top: 10px;
 }
